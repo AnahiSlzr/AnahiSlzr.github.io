@@ -17,9 +17,9 @@
 			<header id="header">
 				<div class="inner">
 					<a class="image avatar"><img src="images/avatar.png" alt="" /></a>
-					<h1><strong>Anahí Salazar</strong>, a super simple<br />
+					<!--h1><strong>Anahí Salazar</strong>, a super simple<br />
 					responsive site template freebie<br />
-					crafted by <a href="http://html5up.net">HTML5 UP</a>.</h1>
+					crafted by <a href="http://html5up.net">HTML5 UP</a>.</h1-->
 				</div>
 			</header>
 
@@ -29,13 +29,151 @@
 				<!-- One -->
 					<section id="one">
 						<header class="major">
-							<h2>About me</h2>
+							<h2>Kaggle's Titanic Competition</h2>
 						</header>
-						<p>Accumsan orci faucibus id eu lorem semper. 
-							Eu ac iaculis ac nunc nisi lorem vulputate lorem neque cubilia ac in adipiscing in curae lobortis tortor primis integer massa adipiscing id nisi accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque cubilia.</p>
-					</section>
+						<!--Introducction-->
+						<h3>Introduction</h3>
+						<p align="justify"> According to Wikipedia:</p>
+						
+							<blockquote align="justify" cite="https://en.wikipedia.org/wiki/Kaggle">
+								Kaggle, a subsidiary of Google LLC, is an online community of data scientists and machine 
+								learning practitioners. Kaggle allows users to find and publish data sets, explore and 
+								build models in a web-based data-science environment, work with other data scientists 
+								and machine learning engineers, and enter competitions to solve data science challenges.
+							</blockquote>
+						
+						<p align="justify">
+							In Kaggle we can find a lot of data sets that we can use to explore, analyze, and build our models when 
+							we want to become data scientists or just for fun.
 
-				
+							One of the competitions that we can use to get started is the 
+							<a href="https://www.kaggle.com/c/titanic/overview">"Titanic - Machine Learning from Disaster"</a> 
+							competition.
+						
+							<br><br> In this section, we'll explore the Titanic passengers data set and create a model to predict 
+							whether or not a passenger survived.
+							
+							<!--Aclarar que se usara R para el analisis y los graficos -->
+						</p>
+
+						<h3>Data Description</h3>
+						<p align="justify">
+							We have three types of data:
+							<br> &#8226; <em>train.csv</em> -- The training data set.
+							<br> &#8226; <em>test.csv</em> -- The testing data set.
+							<br> &#8226; <em>gender_submission.csv</em> -- An example of the submission.
+							
+							<br><br>The data variables are described below:
+						
+						</p>
+						<style type="text/css">
+							.tg  {border-collapse:collapse;border-spacing:0;}
+							.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+								overflow:hidden;padding:10px 5px;word-break:normal;}
+							.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+								font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+							.tg .tg-vfn0{background-color:#efefef;border-color:#000000;text-align:left;vertical-align:top}
+							.tg .tg-5c4w{background-color:#efefef;border-color:#000000;text-align:left;vertical-align:top}
+							.tg .tg-iks7{background-color:#ffffff;border-color:#000000;text-align:left;vertical-align:top}
+							</style>
+							<table class="tg">
+							<thead>
+								<tr>
+								<th class="tg-5c4w">Variable</th>
+								<th class="tg-5c4w">Definition</th>
+								<th class="tg-5c4w">Key</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+								<td class="tg-iks7">Survival</td>
+								<td class="tg-iks7">Survival</td>
+								<td class="tg-iks7">1=Yes, 0=No</td>
+								</tr>
+								<tr>
+								<td class="tg-iks7">Pclass</td>
+								<td class="tg-iks7">Ticket class</td>
+								<td class="tg-iks7">1=1st, 2=2nd, 3=3rd</td>
+								</tr>
+								<tr>
+								<td class="tg-iks7">Sex</td>
+								<td class="tg-iks7">Sex</td>
+								<td class="tg-iks7">male, female</td>
+								</tr>
+								<tr>
+								<td class="tg-iks7">Age</td>
+								<td class="tg-iks7">Age in years</td>
+								<td class="tg-iks7"></td>
+								</tr>
+								<tr>
+								<td class="tg-iks7">SibSp</td>
+								<td class="tg-iks7">Number of siblings/spouses aboard</td>
+								<td class="tg-iks7"></td>
+								</tr>
+								<tr>
+								<td class="tg-iks7">ParCh</td>
+								<td class="tg-iks7">Number of parents/children aboard</td>
+								<td class="tg-iks7"></td>
+								</tr>
+								<tr>
+								<td class="tg-iks7">Ticket</td>
+								<td class="tg-iks7">Ticket number</td>
+								<td class="tg-iks7"></td>
+								</tr>
+								<tr>
+								<td class="tg-iks7">Fare</td>
+								<td class="tg-iks7">Passenger fare</td>
+								<td class="tg-iks7"></td>
+								</tr>
+								<tr>
+								<td class="tg-iks7">Cabin</td>
+								<td class="tg-iks7">Cabin number</td>
+								<td class="tg-iks7"></td>
+								</tr>
+								<tr>
+								<td class="tg-iks7">Embarked</td>
+								<td class="tg-iks7">Port of embarkation</td>
+								<td class="tg-iks7">C=Cherbourg, Q=Queenstown, S=Southampton</td>
+								</tr>
+							</tbody>
+							</table>
+						</style>
+						
+						<p align="justify">
+							We can start to formulate some hypotheses about the variables that most influence passenger survival.
+							For example, we can assume that gender and age will play an important role, due to the "women and children first" rule.
+							Moreover, we know that the upper class tends to benefit in various situations, therefore it could be another important factor.
+
+							<br><br> Another hypothesis that we can make is the correlation between variables:
+							<br> &#8226; The cost of the ticket is probably related to the passenger's class and port of embarkation.
+							<br> &#8226; Due to age and gender, we could possibly deduce if the passenger was accompanied or not.
+
+							<br><br> It's possible that some variables, as the ticket or the cabin number, are not so relevant for the model we want to create.
+						</p>
+
+						<h3>Data Exploration</h3>
+						<p align="justify">
+							
+							<!--br> &#8226;-->
+							Empezamos haciendo resumen rápido de los datos
+							<img src="images/titanic/01 - Summary.png" alt="" /></a>
+						</p>
+
+						<h3>Data Cleaning</h3>
+						<h3>Model</h3>
+						<h3>Results</h3>
+						
+						<!--Data Exploration-->
+						<!--Data Cleaning-->
+						<!--Model-->
+						<!--Results-->
+
+
+
+						
+					</section>
+            </div>
+
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.poptrox.min.js"></script>
